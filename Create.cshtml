@@ -1,0 +1,36 @@
+﻿@model Footballs.Models.Match
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("CreatenewAccount", "Home"))
+   
+    {
+@Html.ValidationSummary("Errors in account creation")
+<p>
+    MatchID : @Html.TextBoxFor(b => b.MatchID)
+    @Html.ValidationMessageFor(b => b.MatchID)
+</p>
+<p>
+    TeamName1 : @Html.TextBoxFor(b => b.TeamName1)
+    @Html.ValidationMessageFor(b => b.TeamName1)
+</p>
+<p>
+    TeamName2: @Html.TextBoxFor(b => b.TeamName2)
+    @Html.ValidationMessageFor(b => b.TeamName2)
+</p>
+    string[] s = { "Win", "Draw" };
+    SelectList list = new SelectList(s);
+<p>
+    Status: @Html.DropDownList("dropdownlist1", list,
+"SELECT")
+    @Html.ValidationMessageFor(b => b.Status)
+</p>
+<p>WinningTeam: @Html.TextBoxFor(b => b.WinningTeam)</p>
+<input type="submit" value=" Create Account" />
+
+}
+
+
